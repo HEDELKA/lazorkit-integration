@@ -7,6 +7,7 @@
 ## 📦 What You've Built
 
 A **production-ready Lazorkit integration** that demonstrates:
+
 - ✅ Passkey wallets (no seed phrases)
 - ✅ Gasless transactions (Lazorkit Paymaster)
 - ✅ Professional code architecture
@@ -18,20 +19,24 @@ A **production-ready Lazorkit integration** that demonstrates:
 ## 🚀 Submit in 3 Minutes
 
 ### 1. Push to GitHub
+
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/lazorkit-integration
+git remote add origin https://github.com/HEDELKA/lazorkit-integration
 git push -u origin main
 ```
 
 ### 2. Fill Form at Superteam
+
 **URL**: https://superteam.fun/earn/bounties
 
 **Fields**:
+
 - Submission Link: YOUR_GITHUB_URL
 - Live Demo: https://lazorkit.vercel.app
 - Tweet (optional): Use template in `docs/X_THREAD_TEMPLATE.md`
 
 ### 3. Submit & Wait
+
 - Judging: 6-10 days
 - Prize: $700 (1st place likely)
 
@@ -39,15 +44,15 @@ git push -u origin main
 
 ## 📁 Important Files
 
-| File | Purpose |
-|------|---------|
-| **README.md** | Complete guide (installation, usage, tutorials) |
-| **SUBMIT_NOW.md** | 3-step submission checklist |
-| **SUBMISSION_READY.md** | Detailed analysis & confidence breakdown |
-| **BOUNTY_SUBMISSION.md** | What judges will see |
-| **docs/TUTORIAL-1-PASSKEY-SETUP.md** | Passkey explanation with diagram |
-| **docs/TUTORIAL-2-GASLESS-TRANSFER.md** | Gasless TX explanation with diagram |
-| **docs/X_THREAD_TEMPLATE.md** | Optional bonus content |
+| File                                    | Purpose                                         |
+| --------------------------------------- | ----------------------------------------------- |
+| **README.md**                           | Complete guide (installation, usage, tutorials) |
+| **SUBMIT_NOW.md**                       | 3-step submission checklist                     |
+| **SUBMISSION_READY.md**                 | Detailed analysis & confidence breakdown        |
+| **BOUNTY_SUBMISSION.md**                | What judges will see                            |
+| **docs/TUTORIAL-1-PASSKEY-SETUP.md**    | Passkey explanation with diagram                |
+| **docs/TUTORIAL-2-GASLESS-TRANSFER.md** | Gasless TX explanation with diagram             |
+| **docs/X_THREAD_TEMPLATE.md**           | Optional bonus content                          |
 
 ---
 
@@ -70,18 +75,21 @@ Live Demo:      ✓ Active
 ### ✅ Judging Criteria (100% coverage)
 
 **Clarity & Usefulness (40%)**
+
 - 2 detailed tutorials with step-by-step examples
 - 400+ line README with clear sections
 - Mermaid diagrams for complex flows
 - Code comments explaining key logic
 
 **SDK Integration Quality (30%)**
+
 - Proper `LazorkitProvider` setup
 - Correct `useWallet` hook usage
 - Gasless TX with `signAndSendTransaction`
 - Full error handling
 
 **Code Structure & Reusability (30%)**
+
 - Professional folder organization
 - Reusable React components
 - TypeScript types for all data
@@ -92,11 +100,13 @@ Live Demo:      ✓ Active
 ## 🎁 Bonus Content Ready
 
 **Option 1: X Thread** (30 min, +bonus points)
+
 - Template provided in `docs/X_THREAD_TEMPLATE.md`
 - 8 tweets prepared
 - Just copy-paste and post
 
 **Option 2: Skip**
+
 - Your main submission is strong enough
 - Bonus points are nice but not required
 
@@ -122,14 +132,17 @@ Live Demo:      ✓ Active
 ## 💰 Prize Expectations
 
 **1st Place: $700** (70% chance)
+
 - Your clarity beats other entries
 - Code quality is professional
 - Documentation is comprehensive
 
 **2nd Place: $400** (25% chance)
+
 - Still very strong outcome
 
 **3rd+ Place: $200** (5% chance)
+
 - Unlikely with your deliverables
 
 ---
@@ -137,6 +150,7 @@ Live Demo:      ✓ Active
 ## 📋 Next Steps
 
 ### Today
+
 1. ✅ Code complete
 2. ✅ Demo live
 3. **TODO**: Push to GitHub (5 min)
@@ -144,12 +158,14 @@ Live Demo:      ✓ Active
 5. **OPTIONAL**: Post X thread (30 min)
 
 ### Tomorrow (if you want bonus)
+
 6. Write X thread from template
 7. Post on Twitter
 8. Get URL
 9. Can still be added to submission
 
 ### 6-10 Days Later
+
 10. Judging period
 11. Winners announced
 12. KYC verification
@@ -163,6 +179,7 @@ Live Demo:      ✓ Active
 https://lazorkit.vercel.app
 
 **Try**:
+
 1. Click "🔐 Connect Wallet"
 2. Approve biometric
 3. See wallet address
@@ -183,6 +200,7 @@ https://lazorkit.vercel.app
 ## 🚀 The Moment of Truth
 
 You've:
+
 - ✅ Built working code
 - ✅ Written excellent docs
 - ✅ Deployed live demo
@@ -199,6 +217,7 @@ You've:
 This isn't just a "quick hack to get bounty money."
 
 This is a **professional integration** that:
+
 1. Actually works
 2. Teaches others
 3. Shows best practices
@@ -216,10 +235,10 @@ Expected result: **Winning submission.**
 # Step 1: Go to your project
 cd /home/hedelka/main/all_projects/lazorkit
 
-# Step 2: Create GitHub repo at github.com/YOUR_USERNAME/lazorkit-integration
+# Step 2: Create GitHub repo at github.com/HEDELKA/lazorkit-integration
 
 # Step 3: Push code
-git remote add origin https://github.com/YOUR_USERNAME/lazorkit-integration
+git remote add origin https://github.com/HEDELKA/lazorkit-integration
 git push -u origin main
 
 # Step 4: Go to Superteam & submit
@@ -236,9 +255,9 @@ You're ready to win.
 
 ---
 
-*Last Updated: January 3, 2026*  
-*Build Status: ✓ Passing*  
-*Demo Status: ✓ Live*  
-*Documentation: ✓ Complete*
+_Last Updated: January 3, 2026_  
+_Build Status: ✓ Passing_  
+_Demo Status: ✓ Live_  
+_Documentation: ✓ Complete_
 
 🎯 **Ready to go!**

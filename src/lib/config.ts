@@ -1,4 +1,6 @@
-// Lazorkit Configuration
+/**
+ * Lazorkit Configuration constants for RPC, Paymaster, and Network settings.
+ */
 export const LAZORKIT_CONFIG = {
   RPC_URL: process.env.NEXT_PUBLIC_SOLANA_RPC || 'https://api.devnet.solana.com',
   PORTAL_URL: process.env.NEXT_PUBLIC_PORTAL_URL || 'https://portal.lazor.sh',

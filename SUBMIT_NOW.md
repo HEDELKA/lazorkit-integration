@@ -13,7 +13,7 @@ cd /home/hedelka/main/all_projects/lazorkit
 # git init
 
 # Add GitHub remote
-git remote add origin https://github.com/YOUR_USERNAME/lazorkit-integration-example
+git remote add origin https://github.com/HEDELKA/lazorkit-integration
 
 # Push to GitHub
 git push -u origin main
@@ -33,7 +33,7 @@ git push -u origin main
 
 ```
 Link to Your Submission:
-https://github.com/YOUR_USERNAME/lazorkit-integration-example
+https://github.com/HEDELKA/lazorkit-integration
 
 Tweet Link (optional):
 [SKIP FOR NOW - can add later]
@@ -102,6 +102,7 @@ If you're tired, skip the thread. Your main submission is strong enough.
 ## 🎯 What Happens Next
 
 **Timeline:**
+
 - **Day 0**: You submit (today)
 - **Days 1-5**: Judging period (other entries come in)
 - **Day 6**: Winners announced
@@ -125,6 +126,7 @@ If you're tired, skip the thread. Your main submission is strong enough.
 ## 🎁 Your Competitive Edge
 
 You have:
+
 1. **Clear documentation** (beats 80% of entries)
 2. **Working code** (many just have slides)
 3. **Live demo** (most don't deploy)
@@ -139,7 +141,7 @@ You have:
 ```bash
 # From /home/hedelka/main/all_projects/lazorkit:
 
-git remote add origin https://github.com/YOUR_USERNAME/lazorkit-integration-example
+git remote add origin https://github.com/HEDELKA/lazorkit-integration
 git push -u origin main
 ```
 
@@ -169,6 +171,7 @@ Submit now. 💰
 ---
 
 **Questions?**
+
 - Check: SUBMISSION_READY.md (detailed analysis)
 - Check: README.md (full documentation)
 - Check: BOUNTY_SUBMISSION.md (what judges see)

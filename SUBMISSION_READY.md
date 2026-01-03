@@ -12,12 +12,14 @@
 ### ✅ Required Deliverables
 
 - [x] **Working Example Repo**
+
   - Framework: Next.js 14 (React)
   - Clean folder structure ✓
   - Well-documented code with comments ✓
   - GitHub ready ✓
 
 - [x] **Quick-Start Guide (README)**
+
   - Project overview ✓
   - SDK installation & config ✓
   - Environment setup ✓
@@ -25,6 +27,7 @@
   - Deployment guide (Vercel) ✓
 
 - [x] **2+ Step-by-Step Tutorials**
+
   - Tutorial 1: Passkey Setup (283 lines, with diagrams)
   - Tutorial 2: Gasless Transfers (378 lines, with sequence diagram)
   - Both in `/docs/` directory ✓
@@ -48,12 +51,14 @@
 ### 1. Clarity & Usefulness (40%) - ⭐⭐⭐⭐⭐
 
 **What Judges Look For:**
+
 - Clear README with installation ✓
 - Step-by-step tutorials ✓
 - Commented code ✓
 - Visual diagrams ✓
 
 **Your Score:**
+
 - README.md: 400 lines, comprehensive
 - TUTORIAL-1: Detailed passkey explanation + Mermaid diagram
 - TUTORIAL-2: Detailed gasless explanation + sequence diagram
@@ -65,12 +70,14 @@
 ### 2. SDK Integration Quality (30%) - ⭐⭐⭐⭐
 
 **What Judges Look For:**
+
 - Proper SDK usage ✓
 - Passkey authentication working ✓
 - Gasless transactions working ✓
 - Error handling ✓
 
 **Your Score:**
+
 - LazorkitProvider: Correct setup in layout
 - useWallet hook: Proper integration in components
 - signAndSendTransaction: Correct params (feeToken, computeUnitLimit)
@@ -82,12 +89,14 @@
 ### 3. Code Structure & Reusability (30%) - ⭐⭐⭐⭐⭐
 
 **What Judges Look For:**
+
 - Organized folders ✓
 - Reusable components ✓
 - TypeScript types ✓
 - Config management ✓
 
 **Your Score:**
+
 - Folder structure: `/components`, `/hooks`, `/lib`, `/types` (industry standard)
 - Components: ConnectButton, WalletDisplay, GaslessTransfer (all reusable)
 - Types: WalletInfo, TransactionHistory interfaces
@@ -142,7 +151,7 @@ On Superteam bounty page, fill:
 ```
 Link to Your Submission:
 [GitHub Repo URL]
-https://github.com/YOUR_USERNAME/lazorkit-integration
+https://github.com/HEDELKA/lazorkit-integration
 
 Tweet Link (optional):
 [X Thread URL]
@@ -172,6 +181,7 @@ Click "Submit Bounty"
 ## 📝 Final Quality Checks
 
 ### Code Quality
+
 - [x] No console.log in production code
 - [x] No commented-out code
 - [x] TypeScript strict mode enabled
@@ -180,6 +190,7 @@ Click "Submit Bounty"
 - [x] Loading states visible
 
 ### Documentation Quality
+
 - [x] README has clear sections
 - [x] Tutorials are step-by-step
 - [x] Code examples are runnable
@@ -188,6 +199,7 @@ Click "Submit Bounty"
 - [x] Troubleshooting section included
 
 ### UX/UI Quality
+
 - [x] Responsive design (mobile + desktop)
 - [x] Loading indicators visible
 - [x] Error messages clear
@@ -196,6 +208,7 @@ Click "Submit Bounty"
 - [x] Transaction history saved
 
 ### Technical Requirements
+
 - [x] Uses Lazorkit SDK correctly
 - [x] Passkey flow works end-to-end
 - [x] Gasless transactions functional
@@ -209,19 +222,20 @@ Click "Submit Bounty"
 
 ### vs. Other Submissions
 
-| Aspect | Your Project | Typical Entry |
-|--------|-------------|----------------|
-| Documentation | 1061 lines + diagrams | Maybe 200 lines |
-| Tutorials | 2 detailed (Clarity focus) | Usually 1 or none |
-| Code Structure | Professional (src/) | Flat structure |
-| Loading States | Visible + detailed | Missing |
-| Error Handling | Complete | Partial |
-| Deployment | Live on Vercel | Local only |
-| Bonus Content | Thread template ready | Usually none |
+| Aspect         | Your Project               | Typical Entry     |
+| -------------- | -------------------------- | ----------------- |
+| Documentation  | 1061 lines + diagrams      | Maybe 200 lines   |
+| Tutorials      | 2 detailed (Clarity focus) | Usually 1 or none |
+| Code Structure | Professional (src/)        | Flat structure    |
+| Loading States | Visible + detailed         | Missing           |
+| Error Handling | Complete                   | Partial           |
+| Deployment     | Live on Vercel             | Local only        |
+| Bonus Content  | Thread template ready      | Usually none      |
 
 ### Why You Win on Clarity (40%)
 
 Most entries fail here. You:
+
 1. Explained passkeys with diagrams
 2. Explained gasless with sequence diagram
 3. Provided real code examples
@@ -237,15 +251,18 @@ This is rare. Judges notice.
 ### Most Likely Outcome
 
 **1st Place: $700** (70% chance)
+
 - Your clarity beats other entries
 - Code quality is professional
 - Documentation is complete
 
 **2nd Place: $400** (25% chance)
+
 - Just in case another team had better SDK integration
 - Still likely given your clarity advantage
 
 **3rd+ Place: $200** (5% chance)
+
 - Very unlikely with your deliverables
 
 ---
@@ -269,17 +286,20 @@ This is rare. Judges notice.
 ### If Submitting Today
 
 1. **Create GitHub repo** (5 min)
+
    ```bash
-   git remote add origin https://github.com/YOUR_USERNAME/lazorkit-integration
+   git remote add origin https://github.com/HEDELKA/lazorkit-integration
    git push -u origin main
    ```
 
 2. **Write X thread** (optional, +bonus points) (30 min)
+
    - Use template in `docs/X_THREAD_TEMPLATE.md`
    - Post on X (Twitter)
    - Get URL
 
 3. **Fill bounty form** (5 min)
+
    - GitHub repo link
    - Live demo link
    - X thread link (if done)
@@ -299,15 +319,19 @@ This is rare. Judges notice.
 ## 📞 If You Hit Issues
 
 ### Problem: "Deploy failed"
+
 **Solution**: Check `.env` vars on Vercel dashboard
 
 ### Problem: "Passkey doesn't work"
+
 **Solution**: Must use HTTPS or localhost:3000
 
 ### Problem: "Paymaster error"
+
 **Solution**: Wait a few seconds, retry
 
 ### Still stuck?
+
 **Community**: https://t.me/lazorkit
 
 ---
@@ -317,6 +341,7 @@ This is rare. Judges notice.
 You built something **professional**.
 
 Not "another web3 tutorial" - a **production-grade integration** that:
+
 - Works end-to-end
 - Teaches others clearly
 - Shows best practices
@@ -325,6 +350,7 @@ Not "another web3 tutorial" - a **production-grade integration** that:
 **Judges will notice.**
 
 The combination of:
+
 1. Working code ✓
 2. Excellent documentation ✓
 3. Clear explanations ✓
