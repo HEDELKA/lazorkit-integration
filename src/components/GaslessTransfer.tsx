@@ -21,6 +21,10 @@ interface TransferState {
   txHistory: TransactionHistory[];
 }
 
+/**
+ * GaslessTransfer component demonstrating how to trigger a transaction
+ * where fees are covered by a paymaster (no SOL required from user).
+ */
 export function GaslessTransfer() {
   const { wallet, signAndSendTransaction, isConnected } = useWallet();
   const [state, setState] = useState<TransferState>({
@@ -168,14 +172,14 @@ export function GaslessTransfer() {
   if (!isConnected) return null;
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
       {/* Transfer Form */}
       <div className="glass-card p-8 shimmer relative overflow-hidden group">
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-8">
             <div className="h-10 w-10 rounded-full bg-blue-500/10 flex items-center justify-center border border-blue-500/20">
               <Image 
-                src="https://img.icons8.com/fluent-systems-regular/48/38bdf8/airplane-take-off.png" 
+                src="https://img.icons8.com/?id=no5QF4Id6kiC&format=png&size=48&color=38bdf8" 
                 alt="Transfer" 
                 width={20} 
                 height={20}
@@ -211,29 +215,35 @@ export function GaslessTransfer() {
                   placeholder="0.1"
                   className="flex-1 px-4 py-3 bg-black/40 border border-white/5 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 text-slate-200 transition-all placeholder:text-slate-700"
                 />
+              <div className="grid grid-cols-3 gap-2">
                 {['0.1', '0.5', '1.0'].map(val => (
                   <button
                     key={val}
                     type="button"
                     onClick={() => setState((prev) => ({ ...prev, amount: val }))}
-                    className="px-4 py-3 text-xs font-bold bg-white/5 hover:bg-white/10 border border-white/5 rounded-xl text-slate-400 hover:text-white transition-all"
+                    className={`px-3 py-2.5 text-[11px] font-black uppercase tracking-widest rounded-xl transition-all duration-300 border ${
+                      state.amount === val 
+                        ? 'bg-accent/20 border-accent text-accent shadow-[0_0_15px_rgba(56,189,248,0.2)]' 
+                        : 'bg-white/5 border-white/5 text-slate-500 hover:text-slate-300 hover:bg-white/10 hover:border-white/10'
+                    }`}
                   >
-                    {val}
+                    {val} <span className="text-[8px] opacity-40 ml-0.5">SOL</span>
                   </button>
                 ))}
+              </div>
               </div>
             </div>
 
             {state.error && (
               <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-xl flex items-center gap-3 animate-in fade-in slide-in-from-top-1">
-                <Image src="https://img.icons8.com/fluent-systems-regular/48/ef4444/info.png" alt="Error" width={16} height={16} />
+                <Image src="https://img.icons8.com/?id=lzICmAiUWSkI&format=png&size=48&color=ef4444" alt="Error" width={16} height={16} />
                 <p className="text-xs text-red-300 font-medium">{state.error}</p>
               </div>
             )}
 
             {state.success && (
               <div className="p-3 bg-green-500/10 border border-green-500/20 rounded-xl flex items-center gap-3 animate-in fade-in slide-in-from-top-1">
-                <Image src="https://img.icons8.com/fluent-systems-regular/48/22c55e/ok.png" alt="Success" width={16} height={16} />
+                <Image src="https://img.icons8.com/?id=QPQ8uqS9OEpa&format=png&size=48&color=22c55e" alt="Success" width={16} height={16} />
                 <p className="text-xs text-green-300 font-medium">{state.success}</p>
               </div>
             )}
@@ -247,7 +257,7 @@ export function GaslessTransfer() {
                 {state.isLoading ? (
                   <div className="h-5 w-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                 ) : (
-                  <Image src="https://img.icons8.com/fluent-systems-regular/48/ffffff/rocket.png" alt="Send" width={20} height={20} />
+                  <Image src="https://img.icons8.com/?id=no5QF4Id6kiC&format=png&size=48&color=ffffff" alt="Send" width={20} height={20} />
                 )}
                 <span className="font-bold text-white tracking-tight">
                   {state.isLoading ? 'Processing via Paymaster...' : 'Execute Gasless Transfer'}
@@ -272,9 +282,9 @@ export function GaslessTransfer() {
         <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] ml-2">Audit Trail / History</h4>
         <div className="glass-card min-h-[300px] max-h-[500px] overflow-y-auto p-2">
            {state.txHistory.length === 0 ? (
-             <div className="h-[280px] flex flex-col items-center justify-center text-center opacity-40">
-                <Image src="https://img.icons8.com/fluent-systems-regular/48/94a3b8/transaction-list.png" alt="Empty" width={48} height={48} className="mb-4" />
-                <p className="text-sm font-medium text-slate-500 capitalize">History is currently empty</p>
+             <div className="h-[380px] flex flex-col items-center justify-center text-center opacity-40">
+                <Image src="https://img.icons8.com/?id=QCWNw21jG46E&format=png&size=48&color=94a3b8" alt="Empty" width={64} height={64} className="mb-4" />
+                <p className="text-sm font-medium text-slate-500 capitalize tracking-tight">Activity history is currently empty</p>
              </div>
            ) : (
              <div className="space-y-2 p-2">
@@ -286,9 +296,9 @@ export function GaslessTransfer() {
                          tx.status === 'failed' ? 'bg-red-500/10 text-red-500' : 'bg-yellow-500/10 text-yellow-500'
                        }`}>
                           <Image 
-                            src={`https://img.icons8.com/fluent-systems-regular/48/${
+                            src={`https://img.icons8.com/?id=d0gN9rZFgAsc&format=png&size=48&color=${
                               tx.status === 'confirmed' ? '22c55e' : tx.status === 'failed' ? 'ef4444' : 'eab308'
-                            }/circled-chevron-right.png`} 
+                            }`} 
                             alt="Status" 
                             width={20} 
                             height={20} 

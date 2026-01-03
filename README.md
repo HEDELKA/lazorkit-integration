@@ -1,7 +1,7 @@
 # Lazorkit Integration Example - Passkey Smart Wallet
 
 > **Superteam Vietnam Bounty Submission**
-> 
+>
 > High-quality example of Lazorkit SDK integration featuring passkey authentication and gasless transactions on Solana.
 
 🌐 **Live Demo**: https://lazorkit.vercel.app
@@ -92,13 +92,13 @@ A **passkey** is a cryptographic credential stored in your device's Secure Encla
 
 ```typescript
 // src/components/ConnectButton.tsx
-import { useWallet } from '@lazorkit/wallet';
+import { useWallet } from "@lazorkit/wallet";
 
 export function ConnectButton() {
   const { connect } = useWallet();
 
   return (
-    <button onClick={() => connect({ feeMode: 'paymaster' })}>
+    <button onClick={() => connect({ feeMode: "paymaster" })}>
       Connect Wallet
     </button>
   );
@@ -148,8 +148,8 @@ User (Lazorkit Wallet)
 ### Code Example
 
 ```typescript
-import { useWallet } from '@lazorkit/wallet';
-import { SystemProgram, PublicKey } from '@solana/web3.js';
+import { useWallet } from "@lazorkit/wallet";
+import { SystemProgram, PublicKey } from "@solana/web3.js";
 
 export function GaslessTransfer() {
   const { signAndSendTransaction } = useWallet();
@@ -166,12 +166,12 @@ export function GaslessTransfer() {
     const txSignature = await signAndSendTransaction({
       instructions: [instruction],
       transactionOptions: {
-        feeToken: 'USDC', // Pay gas in USDC (optional)
+        feeToken: "USDC", // Pay gas in USDC (optional)
         computeUnitLimit: 200000,
       },
     });
 
-    console.log('Transaction:', txSignature);
+    console.log("Transaction:", txSignature);
   };
 
   return <button onClick={handleTransfer}>Send 1 USDC</button>;
@@ -185,7 +185,7 @@ export function GaslessTransfer() {
    - Go to [Solana Faucet](https://faucet.solana.com)
    - Paste your smart wallet address
    - Request 5 SOL
-3. **Navigate to Transfer Section** (coming in next update)
+3. **Go to the "Active Terminal" section** below your Portfolio.
 4. **Enter Recipient Address**
    - Example: `2e1wdayaSvWtalrWCHAwhMkYbV5aEosCUhxQSKwqBv5c`
 5. **Click "Send USDC"**
@@ -295,8 +295,8 @@ Update `src/app/layout.tsx`:
 
 ```typescript
 export const metadata: Metadata = {
-  title: 'Your App Name',
-  description: 'Your description',
+  title: "Your App Name",
+  description: "Your description",
 };
 ```
 
@@ -314,7 +314,7 @@ Modify `src/lib/config.ts`:
 
 ```typescript
 export const LAZORKIT_CONFIG = {
-  NETWORK: 'mainnet-beta', // mainnet production wallet
+  NETWORK: "mainnet-beta", // mainnet production wallet
   // ...
 };
 ```
@@ -340,7 +340,8 @@ echo $NEXT_PUBLIC_PAYMASTER_URL
 
 ### Issue: "Transaction failed"
 
-**Solution**: 
+**Solution**:
+
 - Check Devnet balance (need at least 0.01 SOL)
 - Verify recipient address format
 - Check transaction on [Solscan](https://solscan.io?cluster=devnet)

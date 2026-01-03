@@ -4,6 +4,10 @@ import { useWallet } from '@lazorkit/wallet';
 import { useState } from 'react';
 import Image from 'next/image';
 
+/**
+ * ConnectButton component that handles Passkey-based authentication.
+ * Manages the connection state and displays biometric authentication prompts.
+ */
 export function ConnectButton() {
   const { connect, disconnect, isConnected, isConnecting, wallet } = useWallet();
   const [error, setError] = useState<string | null>(null);
@@ -42,7 +46,7 @@ export function ConnectButton() {
           title="Disconnect Wallet"
         >
           <Image 
-            src="https://img.icons8.com/fluent-systems-regular/48/FA5252/logout-rounded-left.png" 
+            src="https://img.icons8.com/?id=gH60rKrZnbX9&format=png&size=48&color=FA5252" 
             alt="Logout" 
             width={20} 
             height={20}
@@ -74,7 +78,7 @@ export function ConnectButton() {
             <div className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
           ) : (
             <Image 
-              src="https://img.icons8.com/fluent-systems-regular/48/ffffff/key.png" 
+              src="https://img.icons8.com/?id=PU4roiu8ELp5&format=png&size=48&color=ffffff" 
               alt="Passkey" 
               width={18} 
               height={18}
@@ -92,7 +96,7 @@ export function ConnectButton() {
              <div className="relative h-10 w-10 flex items-center justify-center">
                 <div className="absolute inset-0 bg-accent/20 rounded-full animate-ping" />
                 <Image 
-                  src="https://img.icons8.com/fluent-systems-regular/48/38bdf8/fingerprint.png" 
+                  src="https://img.icons8.com/?id=3RlCu6GGhMC3&format=png&size=48&color=38bdf8" 
                   alt="Biometric" 
                   width={24} 
                   height={24}

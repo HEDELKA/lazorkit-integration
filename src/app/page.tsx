@@ -6,14 +6,18 @@ import { GaslessTransfer } from '@/components/GaslessTransfer';
 import { useWallet } from '@lazorkit/wallet';
 import Image from 'next/image';
 
+/**
+ * Home page for the Lazorkit Integration Example.
+ * Demonstrates the hero section with conditional rendering based on wallet connection status.
+ */
 export default function Home() {
   const { isConnected } = useWallet();
 
   return (
     <div className="space-y-16 pb-20">
       {/* Hero Section */}
-      <section className="relative py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+      <section className="relative py-8 md:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="space-y-6 max-w-2xl text-center md:text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20">
               <span className="relative flex h-2 w-2">
@@ -41,13 +45,13 @@ export default function Home() {
             )}
           </div>
           
-          <div className="relative w-full max-w-sm aspect-square md:aspect-auto md:h-[400px]">
-             <div className="absolute inset-0 bg-accent/20 blur-[100px] rounded-full animate-pulse" />
-             <div className="relative glass-card h-full w-full p-8 flex flex-col justify-center items-center text-center space-y-6 border-white/10">
+          <div className="relative w-full lg:max-w-md mx-auto">
+             <div className="absolute inset-0 bg-accent/20 blur-[120px] rounded-full animate-pulse" />
+             <div className="relative glass-card w-full p-1 flex flex-col justify-center border-white/10 overflow-hidden shadow-2xl">
                 {!isConnected ? (
                   <div className="flex flex-col items-center">
                     <Image 
-                      src="https://img.icons8.com/fluent-systems-regular/48/38bdf8/fingerprint.png" 
+                      src="https://img.icons8.com/?id=3RlCu6GGhMC3&format=png&size=48&color=38bdf8" 
                       alt="Passkey" 
                       width={64} 
                       height={64} 
@@ -81,19 +85,19 @@ export default function Home() {
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {[
           {
-            icon: 'https://img.icons8.com/fluent-systems-regular/48/38bdf8/security-shield.png',
+            icon: 'https://img.icons8.com/?id=vy6OvJYHSJ8I&format=png&size=48&color=38bdf8',
             title: 'Biometric Security',
             desc: 'Hardware-bound keys via WebAuthn. Phishing-proof and non-custodial.',
             color: 'blue'
           },
           {
-            icon: 'https://img.icons8.com/fluent-systems-regular/48/818cf8/lightning-bolt.png',
+            icon: 'https://img.icons8.com/?id=ce15jJ99meTS&format=png&size=48&color=818cf8',
             title: 'Gas Sponsorship',
             desc: 'Users pay fees in USDC or developers sponsor them. No SOL required.',
             color: 'purple'
           },
           {
-            icon: 'https://img.icons8.com/fluent-systems-regular/48/38bdf8/smart-home_1.png',
+            icon: 'https://img.icons8.com/?id=ptGjTAueNqfJ&format=png&size=48&color=38bdf8',
             title: 'Smart Accounts',
             desc: 'PDA-based wallets with session management and multi-sig capabilities.',
             color: 'accent'
