@@ -1,58 +1,141 @@
-# Tutorial 1: Passkey Setup with Lazorkit
+# Tutorial 1: 10x Solana UX with Passkeys & Lazorkit
 
-This guide explains how to replace traditional seed phrases with modern biometric authentication (Passkeys) using the Lazorkit SDK on Solana.
+In this tutorial, we will dive deep into how to implement **biometric authentication (Passkeys)** on Solana using the Lazorkit SDK. This approach eliminates the friction of seed phrases and browser extensions, moving closer to the goal of "10x Solana UX".
 
-## Prerequisites
+## 1. The Vision: Why Passkeys?
 
-- Lazorkit SDK installed (`npm install @lazorkit/sdk`)
-- A Solana RPC provider (Devnet or Mainnet)
+Traditional Web3 onboarding requires users to:
 
-## 1. Initialize Lazorkit
+1. Download a wallet app or extension.
+2. Securely store a 12-24 word seed phrase.
+3. Manually approve every transaction pop-up.
 
-First, initialize the SDK with your configuration:
+**With Lazorkit and Passkeys**, the flow becomes:
 
-```typescript
-import { Lazorkit } from "@lazorkit/sdk";
+1. Click "Connect".
+2. Verify with FaceID/TouchID/Windows Hello.
+3. Done.
 
-const lazorkit = new Lazorkit({
-  network: "devnet",
-  rpcUrl: process.env.NEXT_PUBLIC_SOLANA_RPC_URL,
-});
+### 🧬 Architectural Overview
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Frontend as Next.js App
+    participant SDK as Lazorkit SDK
+    participant Native as WebAuthn (OS)
+    participant RPC as Solana RPC
+
+    User->>Frontend: Clicks "Connect Wallet"
+    Frontend->>SDK: connect({ feeMode: 'paymaster' })
+    SDK->>Native: Request Authentication
+    Native->>User: FaceID / TouchID Prompt
+    User->>Native: Approves
+    Native-->>SDK: Signed Challenge
+    SDK->>RPC: Resolve Account (Smart Wallet)
+    RPC-->>Frontend: Ready!
 ```
-
-## 2. Register a Passkey
-
-To create a new wallet, the user needs to register a Passkey on their device:
-
-```typescript
-const registerPasskey = async (username: string) => {
-  const account = await lazorkit.createAccount({
-    username,
-    displayName: username,
-  });
-
-  console.log("Wallet created:", account.publicKey.toBase58());
-  return account;
-};
-```
-
-## 3. Authenticate with Passkey
-
-Existing users can log in using their Passkey:
-
-```typescript
-const loginWithPasskey = async () => {
-  const account = await lazorkit.login();
-  console.log("Logged in as:", account.publicKey.toBase58());
-};
-```
-
-## 4. Why Passkeys?
-
-- **No Seed Phrases**: Users don't need to write down 12 words.
-- **Biometric Security**: Uses FaceID, TouchID, or Windows Hello.
-- **Cross-Device**: Passkeys can be synced via iCloud or Google Password Manager.
 
 ---
 
-For a full implementation, check the [Next.js Example](../examples/nextjs-passkey-wallet).
+## 2. Setting Up the Environment
+
+First, ensure you have the necessary dependencies installed:
+
+```bash
+npm install @lazorkit/wallet @lazorkit/sdk @solana/web3.js
+```
+
+In your Next.js project, you should set up a configuration file (e.g., `lib/config.ts`):
+
+```typescript
+export const LAZORKIT_CONFIG = {
+  NETWORK: "devnet",
+  RPC_URL: "https://api.devnet.solana.com",
+  // You can also add your Paymaster URL here
+};
+```
+
+---
+
+## 3. Implementing the Connection Flow
+
+The core of the integration lies in the `ConnectButton`. In Lazorkit, the `useWallet` hook manages the authentication lifecycle.
+
+### The `connect` Function
+
+When calling `connect()`, Lazorkit triggers the browser's WebAuthn API.
+
+```typescript
+import { useWallet } from "@lazorkit/wallet";
+
+export function ConnectButton() {
+  const { connect, disconnect, isConnected, isConnecting, wallet } =
+    useWallet();
+
+  const handleConnect = async () => {
+    try {
+      // feeMode: 'paymaster' tells Lazorkit to prepare for gasless transactions
+      await connect({ feeMode: "paymaster" });
+    } catch (err) {
+      console.error("Mastering Passkey Auth failed:", err);
+    }
+  };
+
+  // ... UI Rendering
+}
+```
+
+### 💡 Pro Tip: Transaction Fee Modes
+
+Lazorkit supports two primary fee modes:
+
+- `user`: User pays fees in SOL (traditional).
+- `paymaster`: Fees are covered by a sponsor (gasless).
+
+---
+
+## 4. Account Abstraction & Smart Wallets
+
+Lazorkit doesn't just create a simple 'keypair'. It initializes a **Smart Wallet** (Account Abstraction) that is controlled by your Passkey.
+
+| Feature      | Passkey Wallet                   | Traditional Keypair               |
+| :----------- | :------------------------------- | :-------------------------------- |
+| **Recovery** | Device Sync (iCloud/Google)      | Manual Seed Phrase                |
+| **Gasless**  | Native Support                   | Requires Complex Relayers         |
+| **Security** | Hardware-backed (Secure Enclave) | Software-backed (Browser Storage) |
+
+When a user connects, `wallet.smartWallet` provides the public key of this abstracted account.
+
+---
+
+## 5. UI Best Practices for Biometrics
+
+Since Passkey authentication involves a native OS prompt, it's crucial to provide visual feedback to the user:
+
+1. **State Indicators**: Show an "Authenticating..." state while the OS modal is open.
+2. **Glassmorphism Design**: Use high-quality UI elements to convey "Premium Security".
+3. **Error Handling**: Common errors include `User cancelled` or `Security limitation`. Handle them gracefully with user-friendly messages.
+
+```tsx
+{
+  isConnecting && (
+    <div className="authentication-overlay">
+      <Spinner />
+      <p>Waiting for biometric authentication on your device...</p>
+    </div>
+  );
+}
+```
+
+---
+
+## 6. Next Steps
+
+Once the user is connected via Passkey, they are ready to transact. However, they might not have SOL in their new wallet. This is where **Gasless Transfers** come in.
+
+Check out [**Tutorial 2: Gasless Transfers**](./TUTORIAL-2-GASLESS-TRANSFER.md) to complete the loop!
+
+---
+
+Built by [Lazorkit Integration Team].
